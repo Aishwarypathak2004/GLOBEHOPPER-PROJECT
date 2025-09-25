@@ -1,0 +1,69 @@
+<% layout("./layouts/boilerplate") -%>
+<body>
+    <div class="row mt-4">
+        <div class="col-8 offset-2">
+            <div class="mb-3">
+
+                <h1>Edit listing</h1>
+
+            </div>
+
+      <form method="post" action="/listings/<%=listings._id%>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div  class="mb-3">
+
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="listing[title]" value="<%=listings.title%>" class="form-control"  required>
+
+        </div>
+        
+        <div class="mb-3">
+
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required><%=listings.description%></textarea>
+        </div>
+         <div class="mb-3">
+            <img src="<%=ogurl%>" alt="">
+         </div>
+        
+        <div class="mb-3">
+
+            <label for="image" class="form-label">Upload Image</label>
+             <input type="file" name="listing[image]" value="<%=listings.image%>" class="form-control" required>
+
+        </div>
+
+        <div class="row">
+       
+        <div class="mb-3 col-md-4">
+
+            <label for="price" class="form-label">Price</label>
+             <input type="number" name="listing[price]"  value="<%=listings.price%>" class="form-control" required>
+
+        </div>
+       
+        <div class="mb-3 col-md-8">
+
+            <label for="location" class="form-label">Location</label>
+             <input type="text" name="listing[location]"  value="<%=listings.location%>" class="form-control" required>
+
+        </div>
+
+        <div class="mb-3 col-md-8">
+
+            <label for="Country" class="form-label">Country</label>
+             <input type="text" name="listing[country]"  value="<%=listings.country%>" class="form-control" required>
+
+        </div>
+
+        </div>
+       
+<div class="mb-3 ">
+        <button class="btn btn-success">Edit</button>
+        </div>
+
+    </form>
+
+    </div>
+    </div>
+    
+</body>

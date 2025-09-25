@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-earth-americas"></i></a>
+
+    <!-- Hamburger button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Offcanvas Sidebar -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="navbar-nav">
+ 
+          <a class="nav-link" href="/listings">All listings</a>
+          <a class="nav-link" href="/listings/new">Add new listing</a>
+          <div class="navbar-nav ms-auto" >
+  <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+          </div>
+          <% if(!currUser){ %>
+          <a class="nav-link active" href="/signup">Sign up</a>
+          <a class="nav-link" href="/login">Login</a>
+          <% } %>
+          <% if(currUser){ %>
+          <a class="nav-link" href="/logout">logout</a>
+          <% } %>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

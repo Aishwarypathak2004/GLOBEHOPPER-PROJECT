@@ -1,0 +1,112 @@
+body{
+    background-color: rgb(255, 255, 255) ;
+    font-family: 'Plus Jakarta Sans',sans-serif !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    
+}
+.container{
+    flex: 1 !important;
+     
+
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+.fa-earth-americas{
+
+    color: rgb(0, 255, 64) ;
+    font-size: 2rem;
+
+}
+
+.nav-link{
+
+    color: black !important
+
+}
+
+.finfo{
+
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: rgb(233, 233, 233);
+    flex-wrap: wrap;
+    justify-content: center;
+
+    
+
+}
+
+.finfo-links a{
+    text-decoration: none;
+    color: black;
+}
+.finfo-links a:hover{
+    text-decoration: underline;
+}
+
+.finfo-socials{
+    font-size: 1.2rem;
+    width: 100%;
+    vertical-align: middle;
+}
+.finfo-socials i{
+    margin-right: 1.2rem;
+}
+.finfo-links{
+    width: 100%;
+}
+.card{
+    border: none !important;
+    
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+   
+
+}
+
+.card-body{
+    padding: 0 !important;
+}
+.card-text{
+    font-weight: 400 !important;
+}
+  .atag{
+     text-decoration: none !important;
+     color: black;
+  }
+   .card-img-overlay{
+    opacity: 0 !important;
+   }
+   .card-img-overlay:hover{
+    opacity: 0.2 !important;
+    background-color: white !important;
+   }
+
+.add{
+    border: none !important;
+    background-color: rgb(48, 247, 48) !important;
+}
+.add:hover{
+    scale: 1.1;
+    
+}
+.show-img{
+    height: 30vh !important;
+}
+
+.reviewcard{
+    border: 2px solid rgb(200, 200, 200) !important;
+
+}
+.crd{
+    margin-left: 1rem !important;
+    margin-top: 1rem !important;
+}
