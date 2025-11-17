@@ -56,3 +56,37 @@ module.exports.validateReview=(req,res,next)=>{
   }
   next();
 }
+
+// middlewares/checkxss.js
+
+module.exports.checkxss = (req, res, next) => {
+
+  if (!req.session.safetyOn) {
+    return next(); // safety OFF = do nothing
+  }
+
+  const badKeywords = [
+    "<script", "</script", "javascript:", "onerror", "onload",
+    "alert(", "document.cookie", "select ", "insert ", "update ",
+    "delete ", "drop ", "union ", "--", "' or '1'='1",
+    "\" or \"1\"=\"1", "../", "<img", "<iframe"
+  ];
+
+  const incomingData = JSON.stringify({
+    query: req.query,
+    body: req.body,
+    params: req.params
+  }).toLowerCase();
+
+  const detected = badKeywords.some(keyword =>
+    incomingData.includes(keyword.toLowerCase())
+  );
+
+  if (detected) {
+    req.flash("error", "Suspicious input detected!");
+    return res.redirect("/badinput");
+  }
+
+  next();
+};
+

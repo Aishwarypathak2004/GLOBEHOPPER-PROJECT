@@ -22,7 +22,12 @@
   <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
+
+      
     </form>
+     <a href="/toggle-safety" class="btn btn-warning mb-3 ms-3">
+    Safety: <%= safetyOn ? "ON" : "OFF" %>
+</a>
 
           </div>
           <% if(!currUser){ %>
