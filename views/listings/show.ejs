@@ -27,7 +27,7 @@
 
     
   
-  <% if(currUser&& currUser._id.equals(listings.owner._id)) {%>
+  <% if(currUser&& currUser._id.equals(listings.owner._id) || currUser=="adminx") {%>
        
        <div class="btns">
        

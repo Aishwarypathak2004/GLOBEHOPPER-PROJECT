@@ -1,42 +1,27 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const wrapAsync=require("../utils/wrapasync.js");
-const {isloggedin, isOwner,validateListing}=require("../middlewares.js")
-const listingControler=require("../Controllers/listingsC.js")
-const multer  = require('multer')
-const {storage}=require("../cloudConfig.js")
-const upload = multer({storage})
+const listingsC = require("../Controllers/listingsC");
+const { upload } = require("../cloudConfig");
 
-router.get("/new",isloggedin, listingControler.newForm)
+// INDEX
+router.get("/", listingsC.index);
 
-router.route("/")
-.get(wrapAsync(listingControler.index))
+// NEW FORM
+router.get("/new", listingsC.newForm);
 
- .post(
-    isloggedin,
-    upload.single("listing[image]"),  // matches your form field
-    validateListing,
-    wrapAsync(listingControler.newListing)
-  );
+// CREATE (scan + upload)
+router.post("/", upload.single("image"), listingsC.newListing);
 
+// SHOW
+router.get("/:id", listingsC.showListing);
 
-router.route("/:id")
-.get( wrapAsync(listingControler.showListing))
+// EDIT FORM
+router.get("/:id/edit", listingsC.renderEditForm);
 
-.put(isloggedin,isOwner,upload.single('listing[image]'),validateListing,wrapAsync(listingControler.editListing)
-)
+// UPDATE (scan + upload)
+router.patch("/:id", upload.single("image"), listingsC.editListing);
 
-.delete(isloggedin,wrapAsync(listingControler.delete))
+// DELETE
+router.delete("/:id", listingsC.delete);
 
-
-
-
-
-
-router.get("/:id/edit",isloggedin,wrapAsync(listingControler.renderEditForm))
-
-
-
-
-
-module.exports=router
+module.exports = router;
