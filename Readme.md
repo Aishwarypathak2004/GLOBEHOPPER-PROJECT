@@ -1,0 +1,1 @@
+to pull image from Docker hub : docker pull aishwarypathak/hopper-app:1.0
