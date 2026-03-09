@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hopper-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hopper
+  template:
+    metadata:
+      labels:
+        app: hopper
+    spec:
+      containers:
+      - name: hopper-container
+        image: hopper-app:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ATLAS_DB_URL
+          value: "mongodb://host.docker.internal:27017/globehopper"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
